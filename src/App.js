@@ -13,9 +13,17 @@ class App extends Component {
     targetValue: "",
   };
 
+  // getTargetValue = (target) => {
+  //   this.setState({ targetValue: target });
+  // };
   getTargetValue = (target) => {
-    this.setState({ targetValue: target });
+    let newFilteredData = this.state.countries.filter((country) => {
+      return country.Country.includes(target);
+    });
+    let [x] = newFilteredData;
+    this.setState({ filteredData: x });
   };
+
   //LIFECYCLES.......................
   componentDidMount() {
     Axios.get("https://api.covid19api.com/summary").then((res) => {
@@ -28,10 +36,12 @@ class App extends Component {
   //Others..........................
   //RENDER...........................
   render() {
-    const { countries, targetValue, filteredData } = this.state;
-    const newFilteredData = countries.filter((country) => {
-      return country.Country.includes(targetValue);
-    });
+    const { countries, filteredData } = this.state;
+
+    // const { countries, targetValue, filteredData } = this.state;
+    // const newFilteredData = countries.filter((country) => {
+    //   return country.Country.includes(targetValue);
+    // });
     return (
       <div className="uk-container">
         <h1 className="uk-heading-xlarge uk-text-center uk-margin-large-bottom uk-margin-large-top">

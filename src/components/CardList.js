@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import Card from "./Card";
 
 class CardList extends Component {
   render() {
-    const { countries } = this.props;
+    let { countries } = this.props;
+    countries = { ...countries };
     return (
       <div className="uk-grid uk-grid-column uk-child-width-1-2@m uk-child-width-1-2@s">
         <div>
-          {console.log(countries.NewConfirmed)}
           <div className="uk-card uk-card-secondary uk-card-body">
             <h3 className="uk-card-title">Total Deaths</h3>
             <p className="uk-heading-large ">{countries.TotalDeaths}</p>

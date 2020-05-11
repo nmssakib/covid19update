@@ -7,7 +7,7 @@ const OptionBox = ({ countries, getTargetValue }) => {
       return <option key={country.CountryCode}>{country.Country}</option>;
     })
   ) : (
-    <div>No data</div>
+    <option>No data</option>
   );
 
   //Handles..........................
@@ -16,14 +16,17 @@ const OptionBox = ({ countries, getTargetValue }) => {
     console.log(e.target.value);
   };
 
+  const handleLoad = (e) => {
+    getTargetValue(e.target.value);
+    console.log(e.target.value);
+  };
+
   //Component........................
   return (
-    <form onChange={handleChange}>
+    <form onSelect={handleLoad} onChange={handleChange}>
       <div className="uk-margin">
         <div className="uk-form-controls">
-          <select className="uk-select" id="form-horizontal-select">
-            {data}
-          </select>
+          <select className="uk-select">{data}</select>
         </div>
       </div>
     </form>
