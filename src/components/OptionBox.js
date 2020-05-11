@@ -13,12 +13,10 @@ const OptionBox = ({ countries, getTargetValue }) => {
   //Handles..........................
   const handleChange = (e) => {
     getTargetValue(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleLoad = (e) => {
     getTargetValue(e.target.value);
-    console.log(e.target.value);
   };
 
   //Component........................

@@ -45,8 +45,9 @@ class App extends Component {
     return (
       <div className="uk-container">
         <h1 className="uk-heading-xlarge uk-text-center uk-margin-large-bottom uk-margin-large-top">
-          Covid 19
+          Covid - 19
         </h1>
+        <hr class="uk-divider-small" />
         <OptionBox countries={countries} getTargetValue={this.getTargetValue} />
         <CardList countries={filteredData} />
       </div>
